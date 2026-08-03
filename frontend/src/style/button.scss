@@ -1,0 +1,16 @@
+.button{
+    border: none;
+    outline: none;
+    padding-inline: 1.5rem;
+    padding-block: 0.75em;
+    border-radius: 1rem;
+
+    &.button-primary{
+        background-color: #e1034d;
+        color: white;
+    }
+    &:active{
+         
+        transform: scale(0.95);
+    }
+}
