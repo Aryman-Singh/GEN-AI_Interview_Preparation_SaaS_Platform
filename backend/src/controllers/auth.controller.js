@@ -30,7 +30,12 @@ async function registerUserController(req, res) {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" })
 
     
-    res.cookie("token", token)
+    res.cookie("token", token,{
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    maxAge: 60 * 60 * 1000 // 1 hour
+  })
 
     res.status(201).json({
       success: true,
@@ -75,7 +80,12 @@ async function loginUserController(req, res) {
   }
 
   const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" })
-  res.cookie("token", token)
+  res.cookie("token", token,{
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    maxAge: 60 * 60 * 1000 // 1 hour
+  })
 
   res.status(200).json({
     success: true,
