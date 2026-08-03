@@ -18,7 +18,7 @@ const Home = () => {
        const data=  await generateReport({ resume: resumeFile, selfDescription: selfDesc, jobDescription: jobDesc });
         navigate(`/interview/${data._id}`);
     }
-    console.log(reports)
+     
 
     if(loading) {
         return <main className='loading-screen'>
